@@ -2,7 +2,7 @@ import React from "react";
 import ProjectPresenter from "./ProjectsPresenter";
 import data from "../../data";
 import { connect } from "react-redux";
-import { fetchProjectsActionCreator } from "../../modules/projects";
+const { fetchProjectsActionCreator } = require("../../modules/projects");
 
 class Projects extends React.Component {
   state = {
