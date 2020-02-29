@@ -14,8 +14,8 @@ const Container = styled.div`
 `;
 
 const Image = styled.div`
-  height: 200px;
-  width: 200px;
+  height: 180px;
+  width: 180px;
   background-image: url(${props => props.imagePath});
   background-size: cover;
   background-position: center center;
@@ -27,6 +27,7 @@ const Profile = styled.div`
   margin-left: 40px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
   @media (max-width: 670px) {
     margin-left: 0;
     align-items: center;

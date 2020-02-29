@@ -2,7 +2,8 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 
 const Container = styled.div`
-  padding: 20px 50px;
+  padding: 50px;
+  padding-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

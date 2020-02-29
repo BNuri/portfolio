@@ -49,12 +49,24 @@ const Title = styled.h3`
 `;
 
 const Desc = styled.p`
-  margin-bottom: 20px;
-  text-indent: 2ch;
   line-height: 1.8;
 `;
 
-const ButtonContainer = styled.div``;
+const StackContainer = styled.div`
+  margin-top: 15px;
+`;
+
+const Stack = styled.span`
+  padding: 3px 8px;
+  margin-right: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fef2f1;
+  border-radius: 10px;
+`;
+
+const ButtonContainer = styled.div`
+  margin-top: 20px;
+`;
 
 const Button = styled.a`
   width: 150px;
@@ -89,6 +101,11 @@ const ProjectPresenter = ({ loading, data }) =>
           <Content>
             <Title>{project.title}</Title>
             <Desc>{project.description}</Desc>
+            <StackContainer>
+              {project.stack.map(s => (
+                <Stack>{s}</Stack>
+              ))}
+            </StackContainer>
             <ButtonContainer>
               <Button
                 href={project.siteLink}

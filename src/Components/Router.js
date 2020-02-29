@@ -8,7 +8,7 @@ import {
 import Header from "./Header";
 import Home from "./Home";
 import Projects from "../Routes/Projects";
-import About from "../Routes/About";
+import About from "./About";
 import Contact from "./Contact";
 
 export default () => (
