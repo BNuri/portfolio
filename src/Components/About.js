@@ -60,6 +60,9 @@ const Details = styled.ul`
 
 const Detail = styled.li`
   margin-bottom: 10px;
+  &:before {
+    content: "- ";
+  }
 `;
 
 export default () => (

@@ -2,12 +2,15 @@ import React from "react";
 import ProjectPresenter from "./ProjectsPresenter";
 import data from "../../data";
 import { connect } from "react-redux";
-const actionCreator = require("../../modules/projects");
+import { fetchProjects } from "../../action/projects";
 
 class Projects extends React.Component {
-  state = {
-    loading: true
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
 
   componentDidMount() {
     try {
@@ -20,11 +23,18 @@ class Projects extends React.Component {
 
   render() {
     const { loading } = this.state;
-    const { projects = [] } = this.props;
-    return <ProjectPresenter data={projects} loading={loading} />;
+    return (
+      <ProjectPresenter loading={loading} projects={this.props.projects} />
+    );
   }
 }
 
-export default connect(({ projects }) => ({ projects: projects.all }), {
-  fetchProjects: actionCreator.fetchProjectsActionCreator
+const projectsStateToProps = state => {
+  return {
+    projects: [...state.projects.projects]
+  };
+};
+
+export default connect(projectsStateToProps, {
+  fetchProjects
 })(Projects);

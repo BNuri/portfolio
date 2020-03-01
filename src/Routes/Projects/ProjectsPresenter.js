@@ -86,14 +86,14 @@ const Button = styled.a`
   }
 `;
 
-const ProjectPresenter = ({ loading, data }) =>
+const ProjectPresenter = ({ loading, projects }) =>
   loading ? (
     <span role="img" aria-label="loading">
       ⏳
     </span>
   ) : (
     <Container>
-      {data.map(project => (
+      {projects.map(project => (
         <Project key={project.id}>
           <ImageContainer>
             <Image imagePath={process.env.PUBLIC_URL + project.imagePath} />
@@ -103,7 +103,7 @@ const ProjectPresenter = ({ loading, data }) =>
             <Desc>{project.description}</Desc>
             <StackContainer>
               {project.stack.map(s => (
-                <Stack>{s}</Stack>
+                <Stack key={s}>{s}</Stack>
               ))}
             </StackContainer>
             <ButtonContainer>
@@ -130,7 +130,7 @@ const ProjectPresenter = ({ loading, data }) =>
 
 ProjectPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
-  data: PropTypes.array
+  projects: PropTypes.array
 };
 
 export default ProjectPresenter;
