@@ -2,7 +2,7 @@ import React from "react";
 import ProjectPresenter from "./ProjectsPresenter";
 import data from "../../data";
 import { connect } from "react-redux";
-const { fetchProjectsActionCreator } = require("../../modules/projects");
+const actionCreator = require("../../modules/projects");
 
 class Projects extends React.Component {
   state = {
@@ -26,5 +26,5 @@ class Projects extends React.Component {
 }
 
 export default connect(({ projects }) => ({ projects: projects.all }), {
-  fetchProjects: fetchProjectsActionCreator
+  fetchProjects: actionCreator.fetchProjectsActionCreator
 })(Projects);
