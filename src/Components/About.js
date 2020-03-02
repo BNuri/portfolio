@@ -1,12 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import media from "./media";
 
 const Container = styled.div`
+  height: calc(100vh - 180px);
   padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  ${media.mobile`
+    height: auto;
+    padding: 20px;
+  `};
 `;
 
 const Introduce = styled.div`
@@ -22,14 +28,21 @@ const Image = styled.div`
   background-size: cover;
   background-position: center center;
   border-radius: 50%;
+  ${media.mobile`
+    display: none;
+  `};
 `;
 
 const DescUl = styled.ul`
   margin-left: 20px;
+  ${media.mobile`
+    margin-left: 0;
+  `};
 `;
 
 const DescLi = styled.li`
   margin-top: 10px;
+  line-height: 1.8;
 `;
 
 const Careers = styled.div``;
@@ -60,6 +73,7 @@ const Details = styled.ul`
 
 const Detail = styled.li`
   margin-bottom: 10px;
+  line-height: 1.8;
   &:before {
     content: "- ";
   }

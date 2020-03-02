@@ -1,16 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import media from "./media";
 
 const Container = styled.div`
-  height: 500px;
+  height: calc(100vh - 180px);
   padding: 20px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 670px) {
+  ${media.tablet`
     flex-direction: column;
     justify-content: flex-start;
-  }
+  `};
+  ${media.mobile`
+    height: calc(100vh - 110px);
+    padding: 20px;
+  `};
 `;
 
 const Image = styled.div`
@@ -28,10 +33,10 @@ const Profile = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  @media (max-width: 670px) {
-    margin-left: 0;
+  ${media.tablet`
+    margin-left: 0 ;
     align-items: center;
-  }
+  `};
 `;
 
 const Span = styled.span`

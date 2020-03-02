@@ -1,5 +1,6 @@
 import { createGlobalStyle, keyframes } from "styled-components";
 import reset from "styled-reset";
+import media from "./media";
 
 const fadeIn = keyframes`
 from {
@@ -17,33 +18,27 @@ ${reset};
     body {
         font-family: 'Nanum Gothic Coding', monospace;
         background-color: #F0A383;
+        -ms-overflow-style:none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
     html, body{
         height: 100%;
     }
     body {
         height: calc(100% - 80px);
-        @media (max-width: 450px) {
+        @media (max-width: 480px) {
             height: calc(100% - 10px);
         }
     }
     #root {
         margin: 80px 80px 0px 80px;
         background-color: #F2EAE0;
-        height: 100%;
         border-radius: 5px;
-        overflow: auto;
         transition: margin 0.5s linear;
-        -ms-overflow-style:none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-        @media (max-width: 880px) {
-            margin: 80px 10px 0px 10px;
-        }
-        @media (max-width: 450px) {
-            margin: 10px 10px 0px 10px;
-        }
+        ${media.tablet`margin: 80px 10px 0px 10px;`}
+        ${media.mobile`margin: 10px 10px 0px 10px;`}
     }
     a{
         text-decoration: none;

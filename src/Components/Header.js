@@ -10,7 +10,7 @@ const Header = styled.header`
   left: 0;
   background-color: #f2eae0;
   border-radius: 10px;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     margin-bottom: 0;
   }
 `;
@@ -39,6 +39,9 @@ const Item = styled.li`
     transform: translateY(3px);
     border-bottom: none;
   }
+  @media (max-width: 480px) {
+    padding: 10px 10px;
+  }
 `;
 
 const Logo = styled.div`
@@ -48,10 +51,14 @@ const Logo = styled.div`
   background-size: cover;
   background-position: center center;
   transition: all 0.5s linear;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     height: 50px;
     width: 50px;
     background-image: url(${props => props.bgPathSmall});
+  }
+  @media (max-width: 480px) {
+    height: 40px;
+    width: 40px;
   }
 `;
 

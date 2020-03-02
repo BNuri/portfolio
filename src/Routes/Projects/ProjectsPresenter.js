@@ -1,26 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import media from "../../Components/media";
 
 const Container = styled.div`
   padding: 50px;
+  ${media.mobile`padding: 20px`};
 `;
 
 const Project = styled.div`
   margin-bottom: 50px;
   display: flex;
-  @media (max-width: 450px) {
-    flex-direction: column;
-  }
+  ${media.mobile`flex-direction: column;`};
 `;
 
 const ImageContainer = styled.div`
   width: 40%;
   height: 200px;
-  @media (max-width: 450px) {
+  ${media.mobile`
     width: 100%;
     margin-bottom: 20px;
-  }
+  `};
 `;
 
 const Image = styled.div`
@@ -37,9 +37,11 @@ const Content = styled.div`
   margin-left: 20px;
   display: flex;
   flex-direction: column;
-  @media (max-width: 450px) {
-    width: 100%;
-  }
+  ${media.mobile`
+  width: 100%;
+  margin-left: 0;
+  align-items: center;
+  `};
 `;
 
 const Title = styled.h3`
@@ -53,12 +55,14 @@ const Desc = styled.p`
 `;
 
 const StackContainer = styled.div`
-  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Stack = styled.span`
   padding: 3px 8px;
   margin-right: 10px;
+  margin-top: 10px;
   background-color: rgba(0, 0, 0, 0.4);
   color: #fef2f1;
   border-radius: 10px;
@@ -84,6 +88,10 @@ const Button = styled.a`
     transform: translateY(3px);
     border-bottom: none;
   }
+  ${media.mobile`
+    width: 120px; 
+    padding: 12px 0;
+  `}
 `;
 
 const ProjectPresenter = ({ loading, projects }) =>

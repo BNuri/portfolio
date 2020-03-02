@@ -1,9 +1,15 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import media from "./media";
 
 const Container = styled.div`
+  height: calc(100vh - 180px);
   padding: 50px;
   padding-top: 120px;
+  ${media.mobile`height: calc(100vh - 110px)`};
+`;
+
+const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -70,14 +76,16 @@ const Color = styled.span`
 
 export default () => (
   <Container>
-    <Span>안녕하세요.</Span>
-    <ColorBox>
-      <Colors>
-        <Color>신입 웹 개발자</Color>
-        <Color>성장하는</Color>
-        <Color>배움을 즐기는</Color>
-      </Colors>
-    </ColorBox>
-    <Span>배누리 입니다.</Span>
+    <HomeContainer>
+      <Span>안녕하세요.</Span>
+      <ColorBox>
+        <Colors>
+          <Color>신입 웹 개발자</Color>
+          <Color>성장하는</Color>
+          <Color>배움을 즐기는</Color>
+        </Colors>
+      </ColorBox>
+      <Span>배누리 입니다.</Span>
+    </HomeContainer>
   </Container>
 );

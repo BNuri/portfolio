@@ -10,11 +10,13 @@ import Home from "./Home";
 import Projects from "../Routes/Projects";
 import About from "./About";
 import Contact from "./Contact";
+import ScrollToTop from "./ScrollToTop";
 
 export default () => (
   <Router>
     <>
       <Header />
+      <ScrollToTop />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/projects" exact component={Projects} />
