@@ -22,7 +22,7 @@ class Projects extends React.Component {
   }
 
   render() {
-    const { loading } = this.state;
+    const { loading, imageLoading } = this.state;
     return (
       <ProjectPresenter loading={loading} projects={this.props.projects} />
     );

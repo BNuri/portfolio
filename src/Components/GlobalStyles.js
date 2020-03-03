@@ -27,10 +27,10 @@ ${reset};
         height: 100%;
     }
     body {
-        height: calc(100% - 80px);
-        @media (max-width: 480px) {
-            height: calc(100% - 10px);
-        }
+        height: calc(100vh - 80px);
+        ${media.mobile`
+            height: calc(100vh - 10px);
+        `}
     }
     #root {
         margin: 80px 80px 0px 80px;

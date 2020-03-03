@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import media from "./media";
+import LazyLoadingBackImage from "./LazyLoadingBackImage";
 
 const Container = styled.div`
   height: calc(100vh - 180px);
-  padding: 20px 50px;
+  padding: 0px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,14 +19,12 @@ const Container = styled.div`
   `};
 `;
 
-const Image = styled.div`
+const ImageContainer = styled.div`
   height: 180px;
   width: 180px;
-  background-image: url(${props => props.imagePath});
-  background-size: cover;
-  background-position: center center;
   border-radius: 50%;
   margin-bottom: 20px;
+  overflow: hidden;
 `;
 
 const Profile = styled.div`
@@ -45,9 +44,14 @@ const Span = styled.span`
 
 export default () => (
   <Container>
-    <Image
-      imagePath={"https://avatars1.githubusercontent.com/u/34462368?s=460&v=4"}
-    />
+    <ImageContainer>
+      <LazyLoadingBackImage
+        src={"https://avatars1.githubusercontent.com/u/34462368?s=460&v=4"}
+        placeholder={require(`../assets/loading.png`)}
+        height={"180px"}
+        width={"180px"}
+      />
+    </ImageContainer>
     <Profile>
       <Span>
         <i className="far fa-hand-point-right" /> 배누리

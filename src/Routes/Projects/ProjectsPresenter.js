@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import media from "../../Components/media";
+import LazyLoadingBackImage from "../../Components/LazyLoadingBackImage";
 
 const Container = styled.div`
   padding: 50px;
@@ -21,15 +22,6 @@ const ImageContainer = styled.div`
     width: 100%;
     margin-bottom: 20px;
   `};
-`;
-
-const Image = styled.div`
-  height: 200px;
-  width: auto;
-  background-image: url(${props => props.imagePath});
-  background-size: auto 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
 `;
 
 const Content = styled.div`
@@ -104,7 +96,12 @@ const ProjectPresenter = ({ loading, projects }) =>
       {projects.map(project => (
         <Project key={project.id}>
           <ImageContainer>
-            <Image imagePath={process.env.PUBLIC_URL + project.imagePath} />
+            <LazyLoadingBackImage
+              src={require(`../../assets/${project.imagePath}`)}
+              placeholder={require(`../../assets/loading.png`)}
+              height={"200px"}
+              width={"auto"}
+            />
           </ImageContainer>
           <Content>
             <Title>{project.title}</Title>
