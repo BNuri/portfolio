@@ -10,7 +10,7 @@ const Container = styled.div`
 `;
 
 const Project = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   display: flex;
   ${media.mobile`flex-direction: column;`};
 `;
@@ -42,13 +42,20 @@ const Title = styled.h3`
   margin-bottom: 20px;
 `;
 
-const Desc = styled.p`
+const Desc = styled.ul`
   line-height: 1.8;
+`;
+
+const DescLi = styled.li`
+  &:before {
+    content: "- ";
+  }
 `;
 
 const StackContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-self: flex-start;
 `;
 
 const Stack = styled.span`
@@ -105,7 +112,11 @@ const ProjectPresenter = ({ loading, projects }) =>
           </ImageContainer>
           <Content>
             <Title>{project.title}</Title>
-            <Desc>{project.description}</Desc>
+            <Desc>
+              {project.description.map(des => (
+                <DescLi>{des}</DescLi>
+              ))}
+            </Desc>
             <StackContainer>
               {project.stack.map(s => (
                 <Stack key={s}>{s}</Stack>
