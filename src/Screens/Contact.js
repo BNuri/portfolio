@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import media from "./media";
-import LazyLoadingBackImage from "./LazyLoadingBackImage";
+import media from "../Components/media";
+import LazyLoadingBackImage from "../Components/LazyLoadingBackImage";
 
-const Container = styled.div`
+const Container = styled.main`
   height: calc(100vh - 180px);
   padding: 0px 50px;
   display: flex;

@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import media from "../../Components/media";
-import LazyLoadingBackImage from "../../Components/LazyLoadingBackImage";
+import { useFetch } from "../hooks/useFetch";
+import { connect } from "react-redux";
+import { fetchProjects } from "../action/projects";
+import media from "../Components/media";
+import LazyLoadingBackImage from "../Components/LazyLoadingBackImage";
+import Loader from "../Components/Loader";
 
-const Container = styled.div`
+const Container = styled.main`
   padding: 50px;
   ${media.mobile`padding: 20px`};
 `;
 
-const Project = styled.div`
+const Project = styled.section`
   margin-bottom: 80px;
   display: flex;
   ${media.mobile`flex-direction: column;`};
@@ -93,19 +97,18 @@ const Button = styled.a`
   `}
 `;
 
-const ProjectPresenter = ({ loading, projects }) =>
-  loading ? (
-    <span role="img" aria-label="loading">
-      ⏳
-    </span>
+const Projects = ({ projects }) => {
+  const { loading } = useFetch();
+  return loading ? (
+    <Loader />
   ) : (
     <Container>
-      {projects.map(project => (
+      {projects.map((project) => (
         <Project key={project.id}>
           <ImageContainer>
             <LazyLoadingBackImage
-              src={require(`../../assets/${project.imagePath}`)}
-              placeholder={require(`../../assets/loading.png`)}
+              src={require(`../assets/${project.imagePath}`)}
+              placeholder={require(`../assets/loading.png`)}
               height={"200px"}
               width={"auto"}
             />
@@ -113,12 +116,12 @@ const ProjectPresenter = ({ loading, projects }) =>
           <Content>
             <Title>{project.title}</Title>
             <Desc>
-              {project.description.map(des => (
+              {project.description.map((des) => (
                 <DescLi>{des}</DescLi>
               ))}
             </Desc>
             <StackContainer>
-              {project.stack.map(s => (
+              {project.stack.map((s) => (
                 <Stack key={s}>{s}</Stack>
               ))}
             </StackContainer>
@@ -143,10 +146,29 @@ const ProjectPresenter = ({ loading, projects }) =>
       ))}
     </Container>
   );
-
-ProjectPresenter.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  projects: PropTypes.array
 };
 
-export default ProjectPresenter;
+Projects.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.array.isRequired,
+      stack: PropTypes.array.isRequired,
+      imagePath: PropTypes.string.isRequired,
+      siteLink: PropTypes.string.isRequired,
+      gitHubLink: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+const projectsStateToProps = (state) => {
+  return {
+    projects: [...state.projects.projects],
+  };
+};
+
+export default connect(projectsStateToProps, {
+  fetchProjects,
+})(Projects);

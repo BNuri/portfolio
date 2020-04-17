@@ -25,8 +25,8 @@ const List = styled.ul`
 const Item = styled.li`
   cursor: pointer;
   padding: 15px 25px;
-  background-color: ${props => (props.now ? "#f05742" : "inherit")};
-  color: ${props => (props.now ? "white" : "inherit")};
+  background-color: ${(props) => (props.now ? "#f05742" : "inherit")};
+  color: ${(props) => (props.now ? "white" : "inherit")};
   border-radius: 30px;
   transition: all 0.3s ease-in-out;
   &:hover {
@@ -47,14 +47,14 @@ const Item = styled.li`
 const Logo = styled.div`
   height: 70px;
   width: 140px;
-  background-image: url(${props => props.bgPath});
+  background-image: url(${(props) => props.bgPath});
   background-size: cover;
   background-position: center center;
   transition: all 0.5s linear;
   @media (max-width: 768px) {
     height: 50px;
     width: 50px;
-    background-image: url(${props => props.bgPathSmall});
+    background-image: url(${(props) => props.bgPathSmall});
   }
   @media (max-width: 480px) {
     height: 40px;
@@ -67,19 +67,19 @@ const HLink = styled(Link)``;
 export default withRouter(({ location: { pathname } }) => (
   <Header>
     <List>
-      <HLink to="/">
+      <HLink to="/" title="홈">
         <Logo
           bgPath={require("../assets/logo.png")}
           bgPathSmall={require("../assets/logo-s.png")}
         />
       </HLink>
-      <HLink to="/projects">
+      <HLink to="/projects" title="프로젝트">
         <Item now={pathname === "/projects"}>PROJECTS</Item>
       </HLink>
-      <HLink to="/about">
+      <HLink to="/about" title="자세히">
         <Item now={pathname === "/about"}>ABOUT</Item>
       </HLink>
-      <HLink to="/contact">
+      <HLink to="/contact" title="연락처">
         <Item now={pathname === "/contact"}>CONTACT</Item>
       </HLink>
     </List>

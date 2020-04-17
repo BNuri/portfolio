@@ -47,7 +47,7 @@ ${reset};
     *{
         box-sizing: border-box;
     }
-#root>div {
+#root>main {
     animation: 0.5s ${fadeIn} linear;
 }
 `;

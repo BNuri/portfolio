@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import media from "./media";
+import media from "../Components/media";
 
-const Container = styled.div`
+const Container = styled.main`
   height: calc(100vh - 180px);
   padding: 50px;
   padding-top: 120px;
