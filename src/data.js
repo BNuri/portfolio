@@ -2,7 +2,12 @@ const projects = [
   {
     id: "4",
     title: "Typerz",
-    description: [`Typescript, React를 사용하여 만든 타자 연습 사이트입니다.`],
+    description: [
+      `Typescript, React를 사용하여 만든 타자 연습 사이트입니다.`,
+      `Express를 이용하여 api 서버를 만들어 사용하였습니다.`,
+      `글을 등록할 수 있으며, 타자 연습을 할 수 있습니다.`,
+      `연습이 끝난 후에 랭킹을 확인할 수 있습니다.`,
+    ],
     stack: ["Typescript", "React"],
     imagePath: "typerz.png",
     siteLink: "https://agitated-pasteur-cee57f.netlify.com/#/",

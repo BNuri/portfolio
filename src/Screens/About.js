@@ -91,8 +91,10 @@ export default () => (
       <DescUl>
         <DescLi>안녕하세요.</DescLi>
         <DescLi>JavaScript를 주로 사용하여 웹을 개발하는 배누리입니다.</DescLi>
-        <DescLi>React를 이용한 Front-end 개발에 관심이 많습니다.</DescLi>
-        <DescLi>문제를 효율적인 방식으로 해결하는 개발자가 목표입니다.</DescLi>
+        <DescLi>사용자 경험 향상을 위한 요소들에 관심이 많습니다.</DescLi>
+        <DescLi>
+          문제를 해결하는데 도움이 되는 웹을 개발하는 것이 목표입니다.
+        </DescLi>
       </DescUl>
     </Introduce>
     <Title>Career</Title>
@@ -103,7 +105,7 @@ export default () => (
         <Details>
           <Detail>기존 프로젝트를 반응형 웹으로 수정 (부트스트랩)</Detail>
           <Detail>
-            대회 참가등록 확인 페이지 개발, cafe24로 배포 (Express){" "}
+            대회 참가등록 확인 페이지 개발, cafe24로 배포 (Express)
           </Detail>
           <Detail>
             프로젝트 기획 및 테스트 (요구사항 정의, 기능 정의, 화면 정의, 테이블
