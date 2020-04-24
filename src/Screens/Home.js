@@ -65,7 +65,7 @@ const Color = styled.span`
   padding: 12px 12px;
   margin-bottom: 45px;
   color: white;
-  background-color: #fdb12e;
+  background-color: #f0a383;
   &:first-child {
     background-color: #a77b60;
   }

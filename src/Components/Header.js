@@ -15,14 +15,16 @@ const Header = styled.header`
   }
 `;
 
-const List = styled.ul`
+const ListContainer = styled.ul`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
 `;
 
-const Item = styled.li`
+const List = styled.li``;
+
+const Item = styled.span`
   cursor: pointer;
   padding: 15px 25px;
   background-color: ${(props) => (props.now ? "#f05742" : "inherit")};
@@ -66,22 +68,30 @@ const HLink = styled(Link)``;
 
 export default withRouter(({ location: { pathname } }) => (
   <Header>
-    <List>
-      <HLink to="/" title="홈">
-        <Logo
-          bgPath={require("../assets/logo.png")}
-          bgPathSmall={require("../assets/logo-s.png")}
-        />
-      </HLink>
-      <HLink to="/projects" title="프로젝트">
-        <Item now={pathname === "/projects"}>PROJECTS</Item>
-      </HLink>
-      <HLink to="/about" title="자세히">
-        <Item now={pathname === "/about"}>ABOUT</Item>
-      </HLink>
-      <HLink to="/contact" title="연락처">
-        <Item now={pathname === "/contact"}>CONTACT</Item>
-      </HLink>
-    </List>
+    <ListContainer>
+      <List>
+        <HLink to="/" title="홈">
+          <Logo
+            bgPath={require("../assets/logo.png")}
+            bgPathSmall={require("../assets/logo-s.png")}
+          />
+        </HLink>
+      </List>
+      <List>
+        <HLink to="/projects" title="프로젝트">
+          <Item now={pathname === "/projects"}>PROJECTS</Item>
+        </HLink>
+      </List>
+      <List>
+        <HLink to="/about" title="자세히">
+          <Item now={pathname === "/about"}>ABOUT</Item>
+        </HLink>
+      </List>
+      <List>
+        <HLink to="/contact" title="연락처">
+          <Item now={pathname === "/contact"}>CONTACT</Item>
+        </HLink>
+      </List>
+    </ListContainer>
   </Header>
 ));
