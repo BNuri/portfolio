@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { useFetch } from "../hooks/useFetch";
 import { connect } from "react-redux";
-import { fetchProjects } from "../action/projects";
+import { getProjects } from "../action/projects";
 import media from "../Components/media";
 import LazyLoadingBackImage from "../Components/LazyLoadingBackImage";
-import Loader from "../Components/Loader";
 
 const Container = styled.main`
   padding: 50px;
@@ -16,6 +14,7 @@ const Container = styled.main`
 const Project = styled.section`
   margin-bottom: 80px;
   display: flex;
+  align-items: center;
   ${media.mobile`flex-direction: column;`};
 `;
 
@@ -98,10 +97,7 @@ const Button = styled.a`
 `;
 
 const Projects = ({ projects }) => {
-  const { loading } = useFetch();
-  return loading ? (
-    <Loader />
-  ) : (
+  return (
     <Container>
       {projects.map((project) => (
         <Project key={project.id}>
@@ -116,8 +112,8 @@ const Projects = ({ projects }) => {
           <Content>
             <Title>{project.title}</Title>
             <Desc>
-              {project.description.map((des) => (
-                <DescLi>{des}</DescLi>
+              {project.description.map((des, i) => (
+                <DescLi key={i}>{des}</DescLi>
               ))}
             </Desc>
             <StackContainer>
@@ -149,7 +145,6 @@ const Projects = ({ projects }) => {
 };
 
 Projects.propTypes = {
-  loading: PropTypes.bool.isRequired,
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -170,5 +165,5 @@ const projectsStateToProps = (state) => {
 };
 
 export default connect(projectsStateToProps, {
-  fetchProjects,
+  getProjects,
 })(Projects);

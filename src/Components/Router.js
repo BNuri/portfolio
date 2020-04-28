@@ -6,11 +6,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import Header from "./Header";
-import Home from "../Screens/Home";
-import Projects from "../Screens/Projects";
-import About from "../Screens/About";
-import Contact from "../Screens/Contact";
 import ScrollToTop from "./ScrollToTop";
+import { Home, Projects, About, Contact } from "../Screens";
 
 export default () => (
   <Router>

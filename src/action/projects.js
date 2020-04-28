@@ -1,7 +1,7 @@
-const FETCH_PROJECTS = "FETCH_PROJECTS";
+const GET_PROJECTS = "GET_PROJECT";
 
-function fetchProjects(projects) {
-  return { type: FETCH_PROJECTS, projects };
+function getProjects() {
+  return { type: GET_PROJECTS };
 }
 
-export { FETCH_PROJECTS, fetchProjects };
+export { GET_PROJECTS, getProjects };
