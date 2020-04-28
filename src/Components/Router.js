@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import Header from "./Header";
 import ScrollToTop from "./ScrollToTop";
-import { Home, Projects, About, Contact } from "../Screens";
+import { Projects, About, Contact } from "../Screens";
+import Home from "../Screens/Home";
 
 export default () => (
   <Router>
