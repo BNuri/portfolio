@@ -2,6 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import media from "../Components/media";
 import LazyLoadingBackImage from "../Components/LazyLoadingBackImage";
+import { faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHandPointRight,
+  faEnvelope,
+} from "@fortawesome/free-regular-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Container = styled.main`
   height: calc(100vh - 180px);
@@ -54,16 +61,16 @@ export default () => (
     </ImageContainer>
     <Profile>
       <Span>
-        <i className="far fa-hand-point-right" /> 배누리
+        <FontAwesomeIcon icon={faHandPointRight} /> 배누리
       </Span>
       <Span>
-        <i className="fas fa-mobile-alt" /> 010-2791-9847
+        <FontAwesomeIcon icon={faMobileAlt} /> 010-2791-9847
       </Span>
       <Span>
-        <i className="far fa-envelope" /> luckmon05@naver.com
+        <FontAwesomeIcon icon={faEnvelope} /> luckmon05@naver.com
       </Span>
       <a href="https://github.com/BNuri">
-        <i className="fab fa-github" /> https://github.com/BNuri
+        <FontAwesomeIcon icon={faGithub} /> https://github.com/BNuri
       </a>
     </Profile>
   </Container>
