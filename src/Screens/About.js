@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import media from "../Components/media";
+import Button from "../Components/Button";
 
 const Container = styled.main`
   height: calc(100vh - 180px);
@@ -8,7 +9,7 @@ const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   ${media.mobile`
     height: auto;
     padding: 20px;
@@ -45,38 +46,10 @@ const DescLi = styled.li`
   line-height: 1.8;
 `;
 
-const Careers = styled.div``;
-
 const Title = styled.h3`
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 30px;
-`;
-
-const Career = styled.div`
-  margin-top: 20px;
-`;
-
-const Company = styled.h4`
-  font-size: 18px;
-  margin-bottom: 5px;
-`;
-
-const Period = styled.span`
-  font-size: 16px;
-  opacity: 0.7;
-`;
-
-const Details = styled.ul`
-  margin-top: 20px;
-`;
-
-const Detail = styled.li`
-  margin-bottom: 10px;
-  line-height: 1.8;
-  &:before {
-    content: "- ";
-  }
 `;
 
 export default () => (
@@ -97,22 +70,10 @@ export default () => (
         </DescLi>
       </DescUl>
     </Introduce>
-    <Title>Career</Title>
-    <Careers>
-      <Career>
-        <Company>아이라자스</Company>
-        <Period>2019.02 ~ 2019.10 (8개월)</Period>
-        <Details>
-          <Detail>기존 프로젝트를 반응형 웹으로 수정 (부트스트랩)</Detail>
-          <Detail>
-            대회 참가등록 확인 페이지 개발, cafe24로 배포 (Express)
-          </Detail>
-          <Detail>
-            프로젝트 기획 및 테스트 (요구사항 정의, 기능 정의, 화면 정의, 테이블
-            정의 및 문서화)
-          </Detail>
-        </Details>
-      </Career>
-    </Careers>
+    <Button
+      href={"https://bnuri.github.io/resume/"}
+      icon={"faFileAlt"}
+      name={"이력서"}
+    />
   </Container>
 );

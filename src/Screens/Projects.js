@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { getProjects } from "../action/projects";
 import media from "../Components/media";
 import LazyLoadingBackImage from "../Components/LazyLoadingBackImage";
+import Button from "../Components/Button";
 
 const Container = styled.main`
   padding: 50px;
@@ -74,28 +75,6 @@ const ButtonContainer = styled.div`
   margin-top: 20px;
 `;
 
-const Button = styled.a`
-  width: 150px;
-  display: inline-block;
-  margin: 5px;
-  padding: 12px 10px;
-  background-color: #fdf3f1;
-  color: #f05742;
-  font-weight: 700;
-  border-radius: 50px;
-  text-align: center;
-  border-bottom: solid 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s linear;
-  &:active {
-    transform: translateY(3px);
-    border-bottom: none;
-  }
-  ${media.mobile`
-    width: 120px; 
-    padding: 12px 0;
-  `}
-`;
-
 const Projects = ({ projects }) => {
   return (
     <Container>
@@ -124,18 +103,14 @@ const Projects = ({ projects }) => {
             <ButtonContainer>
               <Button
                 href={project.siteLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-hand-point-right" /> Go to Site
-              </Button>
+                icon={"faHandPointRight"}
+                name={`Go to Site`}
+              />
               <Button
                 href={project.gitHubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fab fa-github" /> GitHub
-              </Button>
+                icon={"faGithub"}
+                name={`GitHub`}
+              />
             </ButtonContainer>
           </Content>
         </Project>
